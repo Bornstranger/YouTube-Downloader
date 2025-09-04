@@ -1,10 +1,11 @@
 import os
+from pathlib import Path
 
 import yt_dlp
 from celery import Celery
 
-DOWNLOAD_DIR = "/app/downloads"
-os.makedirs(DOWNLOAD_DIR, exist_ok=True)
+DOWNLOAD_DIR = Path(__file__).parent.parent / "downloads"
+DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 celery = Celery(
     "worker",
