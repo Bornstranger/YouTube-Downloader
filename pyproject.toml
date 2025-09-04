@@ -1,8 +1,45 @@
+[project]
+name = "YouTube-Downloader"
+version = "0.1.0"
+description = "A practice FastAPI app for downloading YouTube videos with Celery & RabbitMQ"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "yt-dlp",
+]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-v --maxfail=1 --disable-warnings"
+testpaths = [
+    "tests",
+]
+
 [tool.ruff]
-line-length = 88
+# PEP8 default line length
+line-length = 79
 target-version = "py310"
-extend-select = ["I"]  # check import sorting too
-ignore = [""]      # ignore long line errors (optional)
+
+[tool.ruff.lint]
+# Enforce ALL rules (style, correctness, security, etc.)
+select = ["ALL"]
+ignore = []
+
+# No autofix for unused imports/vars, must be fixed manually
+unfixable = ["F401", "F841"]
+
+# Ensure no noqa comments are left unused
+extend-select = ["RUF100"]
+
+[tool.ruff.format]
+quote-style = "double"            # PEP8 prefers double quotes
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "lf"
+docstring-code-format = true
+docstring-code-line-length = 72   # PEP8 for docstrings
 
 [tool.ruff.lint.per-file-ignores]
-"tests/*" = ["S101"]   # allow assert in tests
+# Allow assert only in test files
+"tests/*" = ["S101"]
