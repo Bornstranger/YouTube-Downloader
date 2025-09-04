@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+*.log
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDEs & Editors
+.vscode/
+.idea/
+*.swp
+
+# Byte-compiled / cache
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+.pyre/
+.coverage
+htmlcov/
+
+# Docker
+*.pid
+*.seed
+*.pid.lock
+docker-compose.override.yml
+
+# FastAPI downloads folder
+downloads/
+app/__pycache__/
+
+# Environment files
+.env
+.env.local
+.env.*
+
+# Node (if frontend added later)
+node_modules/
+dist/
+build/
+
+# OS-specific
+.DS_Store
+Thumbs.db
