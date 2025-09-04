@@ -17,29 +17,38 @@ testpaths = [
 ]
 
 [tool.ruff]
-# PEP8 default line length
+# Top-level metadata
 line-length = 79
 target-version = "py310"
 
 [tool.ruff.lint]
 # Enforce ALL rules (style, correctness, security, etc.)
 select = ["ALL"]
-ignore = []
-
-# No autofix for unused imports/vars, must be fixed manually
+# Ignore incompatible or unwanted warnings
+ignore = [
+    "D203",     # incompatible with D211
+    "D213",     # incompatible with D212
+    "EXE002",   # executable file but no shebang
+    "D100",     # missing docstring in module
+    "D104",     # missing docstring in package
+    "FAST002",  # FastAPI dependency without Annotated
+    "PTH110",   # os.path.exists() should be Path.exists()
+    "PTH118",   # os.path.join() should be Path with / operator
+    "PTH103",   # open() should be Path.open()
+]
+# Do not autofix some issues
 unfixable = ["F401", "F841"]
-
-# Ensure no noqa comments are left unused
+# Ensure no unused noqa
 extend-select = ["RUF100"]
 
 [tool.ruff.format]
-quote-style = "double"            # PEP8 prefers double quotes
+quote-style = "double"
 indent-style = "space"
 skip-magic-trailing-comma = false
 line-ending = "lf"
 docstring-code-format = true
-docstring-code-line-length = 72   # PEP8 for docstrings
+docstring-code-line-length = 72
 
 [tool.ruff.lint.per-file-ignores]
-# Allow assert only in test files
+# Allow assert only in tests
 "tests/*" = ["S101"]
