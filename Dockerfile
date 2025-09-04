@@ -8,8 +8,7 @@ ENV PYTHONPATH=/app
 
 # Install runtime dependencies + testing/lint tools
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt \
-    && pip install pytest ruff
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy FastAPI app
 COPY ./app ./app
@@ -22,3 +21,4 @@ EXPOSE 8000
 
 # Default command: run FastAPI
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+
