@@ -4,3 +4,4 @@ yt-dlp==2025.8.27
 celery==5.5.3
 pytest==8.4.1
 ruff==0.12.11
+httpx==0.28.1
