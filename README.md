@@ -15,6 +15,13 @@ docker-compose up -d --build
 ```bash
 docker-compose up down
 ```
+## 3. Linting with Ruff
+
+Run Ruff to check code style and linting:
+
+```bash
+ruff check .
+```
 
 ## 🔗 API Endpoints
 
